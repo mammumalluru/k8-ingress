@@ -17,6 +17,13 @@ spec:
       image: httpd
       ports:
       - containerPort :80
+      volumeMounts:
+        name: html-volume
+        mountPath: /usr/local/apache2/htdocs
+    volumes:
+    - name: html-volume
+      configMap:
+        name: backend-html
 ---
 apiVersion: v1
 kind: Service
